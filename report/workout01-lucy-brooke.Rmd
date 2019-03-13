@@ -1,5 +1,5 @@
 ---
-title: "workout01"
+title: "Workout01"
 author: "Lucy Brooke"
 date: "3/10/2019"
 output: github_document
@@ -7,5 +7,298 @@ output: github_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r load packages}
+library('readr')
+library('ggplot2')
+library('dplyr')
+```
+
+```{r overall shooting percentage table}
+
+shots_data
+
+overall_shooting_perc <- shots_data %>%
+  select(name, shot_made_flag) %>%
+  group_by(name) %>%
+  mutate(total = length(shot_made_flag)) %>%
+  mutate(made = sum(shot_made_flag == "shot_yes")) %>%
+  mutate(perc_made = (made/total)*100) %>%
+  select(name, total, made, perc_made) %>%
+  group_by(name, total, made, perc_made) %>%
+  summarise() %>%
+  arrange(desc(perc_made))
+
+overall_shooting_perc
+```
+
+```{r 2pt shooting percentage table}
+two_pt_shooting_perc <- shots_data %>%
+  select(name, shot_made_flag, shot_type) %>%
+  group_by(name) %>%
+  mutate(total = sum(shot_type == "2PT Field Goal")) %>%
+  filter(shot_type == "2PT Field Goal") %>%
+  mutate(made = sum(shot_made_flag == "shot_yes")) %>%
+  mutate(perc_made = (made/total)*100) %>%
+  select(name, total, made, perc_made) %>%
+  group_by(name, total, made, perc_made) %>%
+  summarise() %>%
+  arrange(desc(perc_made))
+
+
+two_pt_shooting_perc
+```
+
+```{r 3pt shooting percentage table}
+three_pt_shooting_perc <- shots_data %>%
+  select(name, shot_made_flag, shot_type) %>%
+  group_by(name) %>%
+  mutate(total = sum(shot_type == "3PT Field Goal")) %>%
+  filter(shot_type == "3PT Field Goal") %>%
+  mutate(made = sum(shot_made_flag == "shot_yes")) %>%
+  mutate(perc_made = (made/total)*100) %>%
+  select(name, total, made, perc_made) %>%
+  group_by(name, total, made, perc_made) %>%
+  summarise() %>%
+  arrange(desc(perc_made))
+
+three_pt_shooting_perc
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
 ```
 
